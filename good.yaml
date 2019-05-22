@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-volumes-test
+  namespace: bad-volumes-test
+  labels:
+    service: bad-volumes-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: bad-volumes-test
+  template:
+    metadata:
+      name: bad-volumes-test
+      namespace: bad-volumes-test
+      labels:
+        service: bad-volumes-test
+    spec:
+      containers:
+        - name: noop
+          image: bash:latest
+          command: [ "tail" ]
+          args: ["-f", "/dev/null"]
+          resources:
+            limits:
+              cpu: 5m
+              memory: 10Mi
+            requests:
+              cpu: 5m
+              memory: 10Mi
+          volumeMounts:
+            - name: config
+              mountPath: /service/test
+      volumes:
+        - name: config
+          configMap:
+            name: test
+            items:
+            - key: a.txt
+              path: a.txt

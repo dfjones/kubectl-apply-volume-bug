@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test
+  namespace: bad-volumes-test
+data:
+  a.txt: "a" 
