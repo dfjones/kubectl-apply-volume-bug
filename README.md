@@ -26,3 +26,11 @@ If we start with a clean namespace and immediately apply `bad.yaml` it is proper
 ```
 The Deployment "bad-volumes-test" is invalid: spec.template.spec.volumes[1].name: Duplicate value: "config"
 ```
+
+## kubectl verion
+
+```
+kubectl version
+Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.2", GitCommit:"66049e3b21efe110454d67df4fa62b08ea79a19b", GitTreeState:"clean", BuildDate:"2019-05-16T18:55:03Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"darwin/amd64"}
+Server Version: version.Info{Major:"1", Minor:"12", GitVersion:"v1.12.4", GitCommit:"f49fa022dbe63faafd0da106ef7e05a29721d3f1", GitTreeState:"clean", BuildDate:"2018-12-14T06:59:37Z", GoVersion:"go1.10.4", Compiler:"gc", Platform:"linux/amd64"}
+```
